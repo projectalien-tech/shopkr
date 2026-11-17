@@ -11,6 +11,7 @@ A fictional, mobile-first Korean shopping app used as a research instrument for 
 | `index.html` | The whole app: one self-contained HTML file (no build step, no external requests except to your logging server) |
 | `apps-script/Code.gs` | The logging and condition-assignment backend, run as a Google Apps Script web app bound to a Google Sheet |
 | `.nojekyll` | Tells GitHub Pages to serve the files as they are |
+| `tests/` | Automated browser tests (Playwright) that run the app against the real `Code.gs` in a mock Google environment; see `tests/README.md` |
 
 ## Studies built in
 
