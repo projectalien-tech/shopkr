@@ -419,7 +419,7 @@
 
 /* ============================== CONFIG ============================== */
 const CONFIG = {
-  APP_VERSION: '6.3.0',
+  APP_VERSION: '6.4.0',
   ENDPOINT_URL: '',            // Google Apps Script web-app URL (ends in /exec). Empty = data stays on the device only.
   SYNC_INTERVAL_MS: 5000,      // batch send interval
   SYNC_BATCH_MAX: 150,         // events per request
@@ -879,12 +879,24 @@ const PRODUCTS = [
   {id:3,  cat:'food', brand:'면가람',   name:'새콤달콤 비빔면 4개입',        size:'130g × 4개',   unit:{amt:520, m:'g', per:100}, price:4120,  list:4600,  rating:4.4, rc:1210, f:true,  fast:true,  ad:false, stock:150, art:{t:'pouch', c:'#E85D2A', a:'#FFF1C1'}},
   {id:4,  cat:'food', brand:'바삭공방', name:'버터 갈릭 감자칩',             size:'110g',         unit:{amt:110, m:'g', per:100}, price:2480,  list:2480,  rating:4.3, rc:862,  f:true,  fast:true,  ad:true,  stock:300, art:{t:'pouch', c:'#F4B400', a:'#3B2A1A'}},
   {id:5,  cat:'food', brand:'하루간식', name:'구운 아몬드 하루견과 25봉',    size:'20g × 25봉',   unit:{amt:500, m:'g', per:100}, price:15900, list:19900, rating:4.8, rc:3120, f:true,  fast:true,  ad:false, stock:90,  art:{t:'box',   c:'#7A9E3D', a:'#FFFFFF'}},
+  // Food: added in v6.4 to deepen the task's three needs (protein, staple, seasoning). Ids continue after Fresh.
+  {id:49, cat:'food', brand:'국수명가', name:'중면 국수 소면 1.5kg',          size:'1.5kg',        unit:{amt:1500, m:'g', per:100}, price:4980,  list:4980,  rating:4.6, rc:980,  f:true,  fast:false, ad:false, stock:140, art:{t:'pouch', c:'#E9D8A6', a:'#9B2226'}},
+  {id:50, cat:'food', brand:'바다한끼', name:'살코기 참치 캔 4개입',           size:'100g × 4캔',   unit:{amt:400, m:'g', per:100},  price:7980,  list:9480,  rating:4.7, rc:2650, f:true,  fast:true,  ad:false, stock:220, art:{t:'can',   c:'#1D5C96', a:'#F2C14E'}},
+  {id:51, cat:'food', brand:'핏밀',     name:'훈제 닭가슴살 5팩',              size:'100g × 5팩',   unit:{amt:500, m:'g', per:100},  price:12900, list:15900, rating:4.5, rc:1340, f:true,  fast:true,  ad:true,  stock:160, art:{t:'pouch', c:'#C1121F', a:'#FDF0D5'}},
+  {id:52, cat:'food', brand:'면가람',   name:'쫄깃 냉장 생우동 4인분',         size:'230g × 4개',   unit:{amt:920, m:'g', per:100},  price:5980,  list:6980,  rating:4.5, rc:720,  f:true,  fast:true,  ad:false, stock:110, art:{t:'pouch', c:'#F4F1DE', a:'#E07A5F'}},
+  {id:53, cat:'food', brand:'장맛골',   name:'한우 불고기 양념 소스',          size:'840g',         unit:{amt:840, m:'g', per:100},  price:5480,  list:5980,  rating:4.6, rc:1105, f:true,  fast:true,  ad:false, stock:130, art:{t:'bottle', c:'#5E3023', a:'#F2C14E'}},
   // Groceries
   {id:6,  cat:'grocery', brand:'해밀들',     name:'갓 지은 즉석밥 백미 12개입', size:'210g × 12개', unit:{amt:2520, m:'g', per:100}, price:13900, list:16800, rating:4.8, rc:5231, f:false, fast:true,  ad:false, stock:120, art:{t:'box',   c:'#C9A66B', a:'#FFFFFF'}},
   {id:7,  cat:'grocery', brand:'장맛골',     name:'태양초 찹쌀 고추장',         size:'1kg',         unit:{amt:1000, m:'g', per:100}, price:8900,  list:8900,  rating:4.6, rc:1688, f:true,  fast:true,  ad:false, stock:75,  art:{t:'jar',   c:'#B7282E', a:'#3C1F1F'}},
   {id:8,  cat:'grocery', brand:'고소담',     name:'저온압착 참기름',            size:'320ml',       unit:{amt:320, m:'ml', per:100}, price:9800,  list:11900, rating:4.5, rc:944,  f:false, fast:true,  ad:true,  stock:60,  art:{t:'bottle', c:'#8C5A1E', a:'#F7D774'}},
   {id:9,  cat:'grocery', brand:'새벽란농장', name:'무항생제 특란 30구',         size:'30개',        unit:{amt:30, m:'개', per:1},    price:9480,  list:10900, rating:4.7, rc:4410, f:true,  fast:true,  ad:false, stock:200, art:{t:'eggs',  c:'#E9A23B', a:'#C68B59'}},
   {id:10, cat:'grocery', brand:'들녘포크',   name:'국내산 냉장 삼겹살 구이용',  size:'500g',        unit:{amt:500, m:'g', per:100},  price:11900, list:13900, rating:4.5, rc:2033, f:false, fast:true,  ad:false, stock:45,  art:{t:'tray',  c:'#E07A7A', a:'#FFD166'}},
+  // Groceries: added in v6.4 (see Food above).
+  {id:54, cat:'grocery', brand:'해밀들',     name:'경기미 햅쌀 백미 4kg',         size:'4kg',          unit:{amt:4000, m:'g', per:100}, price:16900, list:19900, rating:4.7, rc:860,  f:true,  fast:true,  ad:false, stock:70,  art:{t:'pouch', c:'#F1E9DA', a:'#2E7D32'}},
+  {id:55, cat:'grocery', brand:'장맛골',     name:'양조 진간장',                  size:'900ml',        unit:{amt:900, m:'ml', per:100}, price:4980,  list:5480,  rating:4.7, rc:3010, f:true,  fast:true,  ad:false, stock:180, art:{t:'bottle', c:'#3B1F1A', a:'#E63946'}},
+  {id:56, cat:'grocery', brand:'콩이랑',     name:'국산콩 부침 두부 2입',         size:'300g × 2',     unit:{amt:600, m:'g', per:100},  price:3980,  list:3980,  rating:4.5, rc:690,  f:false, fast:true,  ad:false, stock:90,  art:{t:'box',   c:'#EDE6D6', a:'#4C956C'}},
+  {id:57, cat:'grocery', brand:'들녘팜',     name:'냉동 닭가슴살 1kg 개별포장',   size:'1kg',          unit:{amt:1000, m:'g', per:100}, price:10900, list:12900, rating:4.6, rc:1580, f:true,  fast:true,  ad:false, stock:100, art:{t:'tray',  c:'#F2B8A0', a:'#BDE0FE'}},
+  {id:58, cat:'grocery', brand:'마늘골',     name:'국산 다진마늘 냉동 큐브',      size:'500g',         unit:{amt:500, m:'g', per:100},  price:6900,  list:7900,  rating:4.6, rc:540,  f:true,  fast:false, ad:false, stock:60,  art:{t:'box',   c:'#F5F0E1', a:'#8D99AE'}},
   // Beauty
   {id:11, cat:'cosmetics', brand:'루미엘', name:'녹차 수분 세럼',                    size:'80ml',  unit:{amt:80, m:'ml', per:10},  price:21900, list:28000, rating:4.7, rc:3302, f:true, fast:true, ad:true,  stock:110, art:{t:'pump',   c:'#3E8E5E', a:'#E8F5E9'}},
   {id:12, cat:'cosmetics', brand:'모아랩', name:'시카 진정 크림',                    size:'50ml',  unit:{amt:50, m:'ml', per:10},  price:18900, list:18900, rating:4.8, rc:2210, f:true, fast:true, ad:false, stock:95,  art:{t:'jar',    c:'#9BC4BC', a:'#2F4F4F'}},
@@ -925,8 +937,8 @@ const PRODUCTS = [
   // never requires joining. alt = regular item and quantity ratio, used to compute what a member saved.
   {id:41, cat:'fresh', members:true, brand:'ShopKR 프레시', name:'한돈 삼겹살 구이용 (새벽배송)', size:'500g',     unit:{amt:500, m:'g', per:100}, price:9900, list:9900, rating:4.8, rc:1820, f:true, fast:true, ad:false, stock:80,  alt:{id:10, r:1},   art:{t:'tray',   c:'#D96C6C', a:'#FFD166'}},
   {id:42, cat:'fresh', members:true, brand:'ShopKR 프레시', name:'동물복지 유정란 15구',          size:'15개',     unit:{amt:15, m:'개', per:1},    price:5480, list:5480, rating:4.7, rc:2104, f:true, fast:true, ad:false, stock:120, alt:{id:9, r:0.5},  art:{t:'eggs',   c:'#E2A04A', a:'#B9835A'}},
-  {id:43, cat:'fresh', members:true, brand:'ShopKR 프레시', name:'국내산 닭가슴살 1kg',           size:'1kg',      unit:{amt:1000, m:'g', per:100}, price:8900, list:8900, rating:4.6, rc:1290, f:true, fast:true, ad:false, stock:90,                      art:{t:'tray',   c:'#F2B8A0', a:'#9AD0A8'}},
-  {id:44, cat:'fresh', members:true, brand:'ShopKR 프레시', name:'무농약 콩 손두부 2입',          size:'300g × 2', unit:{amt:600, m:'g', per:100},  price:3480, list:3480, rating:4.6, rc:870,  f:true, fast:true, ad:false, stock:150,                     art:{t:'box',    c:'#E9E4D4', a:'#7A9E3D'}},
+  {id:43, cat:'fresh', members:true, brand:'ShopKR 프레시', name:'국내산 닭가슴살 1kg',           size:'1kg',      unit:{amt:1000, m:'g', per:100}, price:8900, list:8900, rating:4.6, rc:1290, f:true, fast:true, ad:false, stock:90,  alt:{id:57, r:1},  art:{t:'tray',   c:'#F2B8A0', a:'#9AD0A8'}},
+  {id:44, cat:'fresh', members:true, brand:'ShopKR 프레시', name:'무농약 콩 손두부 2입',          size:'300g × 2', unit:{amt:600, m:'g', per:100},  price:3480, list:3480, rating:4.6, rc:870,  f:true, fast:true, ad:false, stock:150, alt:{id:56, r:1},  art:{t:'box',    c:'#E9E4D4', a:'#7A9E3D'}},
   {id:45, cat:'fresh', members:true, brand:'ShopKR 프레시', name:'1등급 신선우유',                size:'900ml',    unit:{amt:900, m:'ml', per:100}, price:2690, list:2690, rating:4.7, rc:1530, f:true, fast:true, ad:false, stock:200,                     art:{t:'bottle', c:'#8EC5FC', a:'#FFFFFF'}},
   {id:46, cat:'fresh', members:true, brand:'ShopKR 프레시', name:'흙대파 1단',                    size:'1단',      unit:{amt:1, m:'단', per:1},     price:2480, list:2480, rating:4.5, rc:640,  f:true, fast:true, ad:false, stock:110,                     art:{t:'pouch',  c:'#4CAF50', a:'#F1F8E9'}},
   {id:47, cat:'fresh', members:true, brand:'ShopKR 프레시', name:'햇양파 1.5kg',                  size:'1.5kg',    unit:{amt:1500, m:'g', per:100}, price:3980, list:3980, rating:4.5, rc:760,  f:true, fast:true, ad:false, stock:100,                     art:{t:'pouch',  c:'#C68B59', a:'#FFF3E0'}},
@@ -938,7 +950,7 @@ const SHIPPING_FEE = 3000; // honest per-order fee when any item lacks free ship
 const HANDLING_FEE = 1500;
 // Sizes in mixed / awkward units, shown only under priceComparisonPrevention.
 const ALT_SIZES = {1:'0.6kg (5봉)', 3:'0.52kg', 5:'25봉 (0.5kg)', 6:'2.52kg', 7:'1,000g', 8:'0.32L', 9:'2.5판', 11:'0.08L',
-  13:'0.3L', 14:'1.69 fl.oz', 15:'0.15L', 19:'2묶음', 20:'6롤', 26:'1다스', 31:'0.48kg', 32:'3개월분', 34:'5팩', 35:'2개월분'};
+  13:'0.3L', 49:'15묶음', 50:'0.4kg (4캔)', 51:'5팩', 52:'4인분', 53:'0.84kg', 54:'4,000g', 55:'0.9L', 56:'2모', 57:'1,000g', 58:'0.5kg', 14:'1.69 fl.oz', 15:'0.15L', 19:'2묶음', 20:'6롤', 26:'1다스', 31:'0.48kg', 32:'3개월분', 34:'5팩', 35:'2개월분'};
 
 /* Reviews: category pools (Korean, with pre-written English translations).
    Each product shows 5 of its category's 7 reviews, chosen deterministically,
@@ -1069,6 +1081,7 @@ function illus(art, label, size){
     containers: () => [0,1,2].map(i => `<rect x="${52+i*6}" y="${128-i*34}" width="${96-i*12}" height="30" rx="6" fill="#EAF2FB" stroke="#B9CDE4"/><rect x="${50+i*6}" y="${122-i*34}" width="${100-i*12}" height="9" rx="4" fill="${c}"/>`).join(''),
     gloves: () => `<rect x="50" y="76" width="100" height="86" rx="6" fill="${c}"/><ellipse cx="100" cy="76" rx="26" ry="8" fill="#fff" opacity=".85"/><path d="M90 76q-6-30 4-34 6 2 6 16 2-20 8-20 6 2 4 22 4-14 10-12 4 4-2 22z" fill="#fff" opacity=".85"/>${txt(130, '#fff', 11)}`,
     rolls: () => [0,1,2].map(i => `<rect x="${46+i*36}" y="70" width="34" height="92" rx="6" fill="#fff" stroke="#DADADA"/><ellipse cx="${63+i*36}" cy="70" rx="17" ry="6" fill="#F3F3F3" stroke="#DADADA"/><ellipse cx="${63+i*36}" cy="70" rx="5" ry="2" fill="#CFCFCF"/>`).join('') + `<rect x="46" y="110" width="106" height="22" fill="${c}" opacity=".9"/>${txt(125, '#fff', 10)}`,
+    can: () => [0,1].map(i => `<g transform="translate(${i*44-22} ${i?14:0})"><rect x="62" y="${84}" width="76" height="64" rx="6" fill="${c}"/><ellipse cx="100" cy="84" rx="38" ry="9" fill="#D9DDE3" stroke="#AEB4BC"/><ellipse cx="100" cy="148" rx="38" ry="9" fill="${c}"/><rect x="62" y="104" width="76" height="22" fill="${a}"/></g>`).join(''),
     bandage: () => `<rect x="48" y="90" width="104" height="70" rx="6" fill="${c}"/><g transform="rotate(-20 100 72)"><rect x="56" y="58" width="88" height="28" rx="14" fill="#F5D0B5"/><rect x="88" y="62" width="24" height="20" rx="3" fill="#EAB89A"/></g>${txt(132, a, 11)}`,
   };
   const draw = T[art.t] || T.box;
@@ -2105,8 +2118,9 @@ function renderHome(){
 
 // English keyword bridge so participants using the English interface can find Korean-named products.
 const EN_KO_BRIDGE = {
-  ramen:'라면', noodle:'면', noodles:'면', snack:'간식', chips:'감자칩', pie:'파이', nuts:'견과', almond:'아몬드',
-  rice:'밥', 'chili paste':'고추장', gochujang:'고추장', 'sesame oil':'참기름', oil:'참기름', egg:'란', eggs:'란', pork:'삼겹살', 'pork belly':'삼겹살',
+  ramen:'라면', noodle:['면','우동'], noodles:['면','우동'], udon:'우동', somen:'소면', tuna:'참치', chicken:'닭가슴살', 'chicken breast':'닭가슴살', tofu:'두부',
+  'soy sauce':'간장', soy:'간장', garlic:'마늘', bulgogi:'불고기', sauce:['소스','간장'], seasoning:['양념','간장','고추장','마늘'], snack:'간식', chips:'감자칩', pie:'파이', nuts:'견과', almond:'아몬드',
+  rice:['밥','쌀'], 'chili paste':'고추장', gochujang:'고추장', 'sesame oil':'참기름', oil:'참기름', egg:'란', eggs:'란', pork:'삼겹살', 'pork belly':'삼겹살',
   serum:'세럼', cream:'크림', toner:'토너', sunscreen:'선크림', sunblock:'선크림', cleanser:'클렌저', 'face wash':'클렌저',
   blanket:'이불', duvet:'이불', container:'용기', containers:'용기', storage:'수납', box:'수납', gloves:'장갑', 'paper towel':'타월', 'kitchen towel':'타월',
   charger:'충전기', case:'케이스', 'phone case':'케이스', 'power strip':'멀티탭', multitap:'멀티탭', earbuds:'이어폰', earphones:'이어폰', cable:'케이블',
@@ -2120,7 +2134,9 @@ function matchesQuery(p, q){
   const hay = (p.name + ' ' + p.brand + ' ' + catName(p.cat)).toLowerCase();
   if (hay.includes(s)) return true;
   if (CATEGORIES.some(c => c.id === p.cat && (c.en.toLowerCase().includes(s) || c.ko.includes(q)))) return true;
-  return Object.keys(EN_KO_BRIDGE).some(k => (s === k || (s.length >= 3 && (s.includes(k) || k.startsWith(s)))) && p.name.includes(EN_KO_BRIDGE[k]));
+  const has = v => [].concat(v).some(x => p.name.includes(x));
+  if (EN_KO_BRIDGE[s]) return has(EN_KO_BRIDGE[s]);   // an exact keyword wins ("soy sauce" is not every sauce)
+  return Object.keys(EN_KO_BRIDGE).some(k => (s === k || (s.length >= 3 && (s.includes(k) || k.startsWith(s)))) && has(EN_KO_BRIDGE[k]));
 }
 const SORTERS = {
   recommended: (a, b) => (b.rating * Math.log10(b.rc + 10)) - (a.rating * Math.log10(a.rc + 10)) || a.id - b.id,
@@ -2660,6 +2676,13 @@ function render(){
 /* ========================= RESEARCHER PANEL =========================
    Opened only by a long-press on the logo (no visible entry point). */
 const CHANGELOG = [
+  {version:'6.4.0', date:'2026-11-17', notes:[
+    'Catalogue: Food & Snacks and Groceries now have 10 products each (ids 49–58 added), so the task needs have more options: proteins (canned tuna, smoked chicken breast, frozen chicken breast, tofu), staples (somen, udon, 4kg rice) and seasonings (soy sauce, bulgogi sauce, minced garlic).',
+    'The new items differ in the ways the task rewards comparing: unit price, free shipping (tofu is not), next-day delivery (somen and garlic are not, which conflicts with the arrive-by-tomorrow task), and ratings that do not follow price. The best-value protein (frozen chicken breast) ranks below a sponsored, pricier smoked chicken breast.',
+    'Fresh: chicken breast (43) and tofu (44) now map to regular alternatives (57, 56), so memberBenefit counts their savings.',
+    'Search: English keywords for the new items (tuna, chicken, tofu, soy sauce, garlic, udon, somen, bulgogi, sauce, seasoning); "rice" now also finds the 4kg rice.',
+    'Cheapest basket that meets the task without joining falls from ₩24,160 to ₩17,580 (tofu + bibim noodles + soy sauce + ₩3,000 shipping + handling fee). 54 of the 120 valid three-item combinations still exceed the ₩30,000 budget.',
+  ]},
   {version:'6.3.0', date:'2026-11-13', notes:[
     'Two switchable designs in CONFIG.DESIGNS: membership-nag-v1 (default for plain links) and the 2×2 search-x-drip-v1 (links with &design=search-x-drip-v1). Each design has its own cells, balancing, and ShopKR+ settings; a session remembers its design.',
     'Membership study: ShopKR+ costs ₩4,990 a month, charged to the saved card on joining and counted in the task budget (no free trial, no checkout offer). Benefits listed are only those the store provides: free shipping, free returns and the new ShopKR Fresh.',

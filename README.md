@@ -2,7 +2,7 @@
 
 A fictional, mobile-first Korean shopping app used as a research instrument for studying dark patterns in e-commerce. Participants shop on their phone from a study link; every interaction is logged to a Google Sheet.
 
-**Current version: 6.3.0**
+**Current version: 6.4.0** (app); Apps Script backend unchanged at 6.3.0
 
 ## What's in this repository
 
@@ -53,5 +53,6 @@ Run `purgeWithdrawn()` in the Apps Script editor before each export to delete th
 
 ## Notes
 
+- Catalogue: 58 fictional products. Food & Snacks and Groceries have 10 each (the task's protein, staple and seasoning options), the other six categories 5 each, plus 8 members-only ShopKR Fresh items.
 - All brands, products and prices are fictional. Payment uses a prefilled saved card only; the app never asks for card numbers, OTPs or passwords.
 - The repository is public so GitHub Pages can serve it on a free plan. The Apps Script URL can add rows but cannot read the Sheet; keep the Sheet shared with the research team only.
